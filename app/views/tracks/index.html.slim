@@ -1,0 +1,21 @@
+= form_for :q, url: tracks_path, method: :get do |f|
+  = f.label :start_time
+  = f.datetime_field :start_time, value: 1.day.ago
+
+  = f.label :end_time
+  = f.datetime_field :end_time, value: Time.now
+
+  = f.label :username
+  = f.text_field :username, placeholder: "username"
+
+  = f.submit value: 'Search'
+
+.results
+  ul
+    - @track_counts.each do |entry|
+      li
+        .track-count
+          .track-count__artist = entry.artist_name
+          .track-count__track = entry.track_name
+          .track-count__plays = entry.play_count
+      hr
