@@ -27,6 +27,7 @@ module LastfmWeb
     config.action_controller.action_on_unpermitted_parameters = :raise
     config.load_defaults 6.0
     config.generators.system_tests = nil
+    config.generators.template_engine :slim
     config.active_job.queue_adapter = :delayed_job
   end
 end
